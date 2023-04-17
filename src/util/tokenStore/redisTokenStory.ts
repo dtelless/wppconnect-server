@@ -8,9 +8,9 @@ class RedisTokenStore {
   constructor(client: any) {
     this.client = client;
 
-    let prefix = config.db.redisPrefix || '';
-    if (prefix === 'docker') {
-      prefix = getIPAddress();
+    this.prefix = config.db.redisPrefix || '';
+    if (this.prefix === 'docker') {
+      this.prefix = getIPAddress();
     }
   }
   tokenStore = {
